@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>John Mittner, LPC | Therapy in Pittsburgh, PA</title>
+  <meta name="description" content="Licensed Professional Counselor offering in-person and online therapy in Pittsburgh, PA. Focus areas include ADHD, depression, anxiety, trauma, relationship issues, and life transitions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;600;700&family=Spectral:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f4efe8;
+      --panel: #fffaf4;
+      --ink: #1f2320;
+      --muted: #4b5850;
+      --accent: #2c6e6f;
+      --accent-dark: #214c49;
+      --terracotta: #c86b52;
+      --mist: #dfe7e1;
+      --border: #d9d1c6;
+      --shadow: 0 18px 45px rgba(35, 32, 28, 0.1);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Commissioner', 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at 10% 20%, #f8f1e4 0%, #efe7dd 45%, #f6f0e8 100%);
+      color: var(--ink);
+      line-height: 1.7;
+      padding: 0 1.25rem 3.5rem;
+    }
+    h1, h2, h3 {
+      font-family: 'Spectral', 'Times New Roman', serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: -20% -20% auto auto;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(200, 107, 82, 0.25), rgba(200, 107, 82, 0));
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .container { max-width: 1120px; margin: 0 auto; }
+    header {
+      padding: 2.5rem 0 1.5rem;
+      display: grid;
+      gap: 1.2rem;
+    }
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .brand h1 { margin: 0; font-size: clamp(2.3rem, 5vw, 3.4rem); }
+    .brand span {
+      color: var(--muted);
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.75rem;
+    }
+    nav a {
+      text-decoration: none;
+      padding-bottom: 0.2rem;
+      border-bottom: 2px solid transparent;
+    }
+    nav a:hover { border-color: var(--terracotta); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr;
+      gap: 2rem;
+      align-items: center;
+      background: var(--panel);
+      border-radius: 26px;
+      padding: 2.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      animation: fadeUp 0.7s ease-out;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: auto -15% -35% auto;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(44, 110, 111, 0.25), rgba(44, 110, 111, 0));
+      pointer-events: none;
+    }
+    .hero p { margin: 0 0 1.1rem; }
+    .hero .lead { font-size: 1.1rem; color: var(--muted); }
+    .spaced-top { margin-top: 1rem; }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.2rem;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.1rem;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .pill-primary {
+      background: var(--accent);
+      color: #fdf9f2;
+      box-shadow: 0 12px 25px rgba(44, 110, 111, 0.2);
+    }
+    .pill-primary:hover { transform: translateY(-1px); }
+    .pill-outline {
+      background: transparent;
+      border-color: var(--accent);
+      color: var(--accent-dark);
+    }
+    .hero-card {
+      background: #f9f3ea;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 1.2rem;
+      display: grid;
+      gap: 1rem;
+      max-width: 320px;
+      justify-self: center;
+    }
+    .portrait {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(33, 76, 73, 0.2);
+      box-shadow: 0 12px 22px rgba(33, 76, 73, 0.12);
+    }
+    .portrait img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      object-position: center 5%;
+    }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .badge {
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--border);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    section { margin-top: 3rem; }
+    .section-title { margin: 0 0 0.5rem; font-size: clamp(1.6rem, 3vw, 2.2rem); }
+    .section-sub { color: var(--muted); max-width: 760px; margin: 0 0 1.6rem; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      padding: 1.4rem;
+      box-shadow: 0 10px 24px rgba(33, 35, 32, 0.06);
+    }
+    .card h3 { margin: 0 0 0.45rem; font-size: 1.1rem; }
+    .muted { color: var(--muted); }
+    .list {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
+    }
+    .list li { margin-bottom: 0.4rem; }
+
+    .info-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-top: 1.6rem;
+    }
+    .info-chip {
+      background: #fff7ec;
+      border: 1px dashed var(--terracotta);
+      border-radius: 16px;
+      padding: 1rem;
+      font-weight: 600;
+      color: var(--accent-dark);
+    }
+    .contact-link {
+      color: var(--accent-dark);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+    }
+    .contact-link:hover { border-color: var(--terracotta); }
+
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero { animation: none; }
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      header { padding-top: 2rem; }
+      .portrait img { height: 280px; }
+    }
+    @media (max-width: 620px) {
+      body { padding: 0 1rem 2.5rem; }
+      nav { letter-spacing: 0.08em; }
+      .hero { padding: 2rem 1.6rem; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <div class="brand">
+      <h1>John Mittner, LPC</h1>
+    </div>
+    <nav aria-label="Primary">
+      <a href="#welcome">Welcome</a>
+      <a href="#focus">Focus areas</a>
+      <a href="#approach">Therapy approach</a>
+      <a href="#sessions">Sessions</a>
+      <a href="#contact">Contact</a>
+      <a href="#location">Location</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="welcome" class="hero">
+      <div>
+        <p class="lead">If you have found yourself here, it likely means that you or someone you care about is in need. I encourage you to follow up on that insight, whether it is with me or another therapist who feels right to you.</p>
+        <p>My name is John Mittner. I am a Licensed Professional Counselor with over 20 years of experience. I assist clients in adjusting to and dealing with issues surrounding ADHD, depression, anxiety, trauma, relationship issues, and life transitions.</p>
+        <div class="hero-actions">
+          <a class="pill pill-primary" href="https://john-mittner.clientsecure.me">Schedule a consult</a>
+          <a class="pill pill-outline" href="mailto:johnmittnerlpc@gmail.com">Email John</a>
+          <a class="pill pill-outline" href="https://www.psychologytoday.com/profile/1616924">Visit my Psychology Today page</a>
+        </div>
+        <div class="info-strip">
+          <div class="info-chip">Online and in-person sessions available</div>
+          <div class="info-chip">Daytime and evening availability</div>
+          <div class="info-chip">In-network for Highmark and UPMC Insurance</div>
+        </div>
+        <p class="spaced-top">Change can be scary. My goal is to provide a safe and supportive space in which you can explore what's holding you back and begin working toward meaningful change. I strive to be an ally and advocate for people of all orientations, identities, and backgrounds.</p>
+      </div>
+      <div class="hero-card">
+        <div class="portrait">
+          <img src="business-card/PXL_20251112_195028366.jpg" alt="Portrait of John Mittner, LPC" />
+        </div>
+        <div class="badge-row">
+          <span class="badge">20+ years experience</span>
+          <span class="badge">Creative expression + mindfulness</span>
+          <span class="badge">Self-advocacy focused</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="focus">
+      <h2 class="section-title">Focus areas</h2>
+      <p class="section-sub">Support for navigating a wide range of concerns, with special attention to practical tools and meaningful change.</p>
+      <div class="grid">
+        <div class="card"><h3>ADHD</h3><p>Strategies that support attention, organization, and self-advocacy.</p></div>
+        <div class="card"><h3>Depression</h3><p>Gentle structure to help rebuild momentum and energy.</p></div>
+        <div class="card"><h3>Anxiety</h3><p>Tools to calm anxious thoughts and strengthen resilience.</p></div>
+        <div class="card"><h3>Trauma</h3><p>Care that prioritizes safety, grounding, and paced progress.</p></div>
+        <div class="card"><h3>Relationship issues</h3><p>Space to explore patterns, boundaries, and connection.</p></div>
+        <div class="card"><h3>Life transitions</h3><p>Support for change, grief, identity shifts, and new chapters.</p></div>
+        <div class="card"><h3>Parenting</h3><p>Support for the pressures of parenting, with tools for patience, boundaries, and connection.</p></div>
+      </div>
+    </section>
+
+    <section id="approach">
+      <h2 class="section-title">Therapy approach</h2>
+      <p class="section-sub">Creative, mindful, and client-centered care designed to meet you where you are.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Creative expression</h3>
+          <p>We may use creativity as a pathway for insight, reflection, and emotional clarity.</p>
+        </div>
+        <div class="card">
+          <h3>Mindfulness</h3>
+          <p>Grounding practices that help you stay present and reduce overwhelm.</p>
+        </div>
+        <div class="card">
+          <h3>Self-advocacy</h3>
+          <p>Build the confidence to ask for what you need and honor your boundaries.</p>
+        </div>
+        <div class="card">
+          <h3>Inclusive care</h3>
+          <p>I strive to be an ally and advocate for people of all orientations, identities, and backgrounds.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sessions">
+      <h2 class="section-title">Session options</h2>
+      <p class="section-sub">Choose the setting that fits your life. Sessions are available in-person or online via secure video.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>In-person</h3>
+          <p>Meet in a calming office space located in the South Hills of Pittsburgh.</p>
+        </div>
+        <div class="card">
+          <h3>Online</h3>
+          <p>Video sessions for flexibility and privacy from your own space.</p>
+        </div>
+        <div class="card">
+          <h3>Scheduling</h3>
+          <p>Most weekdays with evening availability.</p>
+        </div>
+        <div class="card">
+          <h3>Insurance</h3>
+          <p>Currently in-network for Highmark and UPMC Insurance.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-sub">Reach out to schedule an initial consult or ask a question.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Schedule a consult</h3>
+          <p>Use the secure request form to book an initial consultation.</p>
+          <a class="pill pill-primary" href="https://john-mittner.clientsecure.me">Schedule a consult</a>
+        </div>
+        <div class="card">
+          <h3>Phone</h3>
+          <p><a class="contact-link" href="tel:14124430700">(412) 443-0700</a></p>
+          <p class="muted">Call for availability and questions.</p>
+        </div>
+        <div class="card">
+          <h3>Email</h3>
+          <p><a class="contact-link" href="mailto:johnmittnerlpc@gmail.com">johnmittnerlpc@gmail.com</a></p>
+          <p class="muted">I will respond with next steps.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="location">
+      <h2 class="section-title">Location</h2>
+      <p class="section-sub">In-person sessions are located in Pittsburgh, Pennsylvania.</p>
+      <div class="card">
+        <h3>Office address</h3>
+        <p>250 Mt. Lebanon Blvd. Suite 320<br />Pittsburgh, PA 15234</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    John Mittner, LPC - Pittsburgh, Pennsylvania
+  </footer>
+</body>
+</html>
